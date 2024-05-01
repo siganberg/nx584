@@ -1,12 +1,13 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+#ARG BUILD_FROM
+#FROM $BUILD_FROM
+FROM homeassistant/amd64-base:3.16
 
 RUN apk add python3 py3-pip git
 
-RUN python3 install --upgrade pip
+RUN pip3 install --upgrade pip
 
 RUN git clone https://github.com/kk7ds/pynx584
-RUN python3 install pynx584/
+RUN pip3 install pynx584/
 
 # Verify python installation
 RUN which python3
